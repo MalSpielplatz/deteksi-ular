@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
-from tensorflow.keras.preprocessing.image import load_img, img_to_array, save_img
-from tensorflow.keras.models import model_from_json
+from tensorflow import load_img, img_to_array, save_img
 import numpy as np
 import shutil
 
@@ -69,8 +68,8 @@ def generate_result(prediction):
 
 	# Map the prediction to the respective class
 	class_names = ['Non Venomous', 'Venomous']
-	predicted_class = class_names[y_out[0]]
-	return predicted_class
+	prediction = class_names[y_out[0]]
+	return prediction
 	
 
 #=========================== Predict Button Clicked ==========================
