@@ -23,8 +23,8 @@ if uploaded_file is not None:
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Load the image
-img_path = input('Enter the path to your image: ')
-img = imread(img_path)
+# img_path = input('Enter the path to your image: ')
+# img = imread(img_path)
 
 # Resize the image
 img_resized = resize(img, (224, 224, 3))
