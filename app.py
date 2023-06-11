@@ -8,7 +8,7 @@ import pickle
 from PIL import Image
 st.title('Ular berbisa atau bukan ?')
 st.text('Upload Image')
-
+st.text("MEKI")
 model = load_model('model/keras_model.h5')
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
