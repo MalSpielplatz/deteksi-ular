@@ -2,3 +2,5 @@ streamlit
 pillow
 tensorflow
 matplotlib
+pickle
+PIL
