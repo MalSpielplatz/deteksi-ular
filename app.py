@@ -82,7 +82,7 @@ if submit:
         st.write("👁️ Predicting...")
 
         model_path_h5 = "model/model.h5"
-        model = tf.keras.models.load_model(model_path_h5)
+        model = tensorflow.keras.models.load_model(model_path_h5)
 
         prediction = processing(image_path)
         result = generate_result(prediction)
