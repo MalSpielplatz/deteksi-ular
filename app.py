@@ -41,6 +41,7 @@ class_names = ['Non Venomous', 'Venomous']
 predicted_class = class_names[y_out[0]]
 
 # Display the image
+print("ABCD")
 plt.imshow(img_resized[0])
 plt.show()
 print(f'PREDICTED OUTPUT: {predicted_class}')
