@@ -11,34 +11,8 @@ from PIL import Image
 st.title('Ular berbisa atau bukan ?')
 st.text('Upload Image')
 
-
-a = np.array([[1, 2, 3, 4, 5],
-              [4, 5, 6, 7, 8]])
-
-a.flatten()
-
-target = []
-images = []
-flat_data = []
-
-DATADIR = 'Snake'
-CATEGORIES = ['NonVenomous','Venomous']
-
-for category in CATEGORIES:
-    class_num = CATEGORIES.index(category)
-    path = os.path.join(DATADIR, category)
-    for img in os.listdir(path):
-        img_array = imread(os.path.join(path, img))
-        img_resized = resize(img_array,(150,150,3))
-        flat_data.append(img_resized.flatten())
-        images.append(img_resized)
-        target.append(class_num)
-
-flat_data = np.array(flat_data)
-target = np.array(target)
-images = np.array(images)
-
 model = load_model('model/keras_model.h5')
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 if uploaded_file is not None:
