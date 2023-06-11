@@ -22,7 +22,7 @@ images = []
 flat_data = []
 
 DATADIR = 'Snake'
-CATEGORIES = ['Non Venomous','Venomous']
+CATEGORIES = ['NonVenomous','Venomous']
 
 for category in CATEGORIES:
     class_num = CATEGORIES.index(category)
