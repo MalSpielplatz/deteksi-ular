@@ -20,17 +20,15 @@ if uploaded_file is not None:
 	st.image(img,caption='Uploaded Image')
 
 	if st.button('PREDICT'):
-		CATEGORIES = ['NonVenomous','Venomous']
-		st.write('Result...')
-        flat_data=[]
-		img_resized = resize(img,(150,150,3))
-		flat_data.append(img_resized.flatten())
-		flat_data = np.array(flat_data)
-		print(img.shape)
-		plt.imshow(img_resized)
-		y_out = model.predict(flat_data)
-		y_out = CATEGORIES[y_out[0]]
-		print(f' PREDICTED OUTPUT: {y_out}')
+		img_resized = resize(img, (224, 224, 3))
+		img_resized = np.expand_dims(img_resized, axis=0)
+		y_out = model.predict(img_resized)
+		y_out = np.argmax(y_out, axis=1)
+		class_names = ['non-venomous', 'venomous']
+		predicted_class = class_names[y_out[0]]
+		plt.imshow(img_resized[0])
+		plt.show()
+		print(f'This snake is {predicted_class}')
                 
 # #Split data into Training and testing
 # from sklearn.model_selection import train_test_split
