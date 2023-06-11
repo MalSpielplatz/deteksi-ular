@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+from tensorflow.keras.models import load_model
 from skimage.io import imread
 from skimage.transform import resize
 import pickle
@@ -8,7 +9,7 @@ from PIL import Image
 st.title('Ular berbisa atau bukan ?')
 st.text('Upload Image')
 
-model = pickle.load(open('model/keras_model.h5','rb'))
+model = load_model('model/keras_model.h5')
 
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 if uploaded_file is not None:
